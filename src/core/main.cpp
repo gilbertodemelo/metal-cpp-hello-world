@@ -13,7 +13,7 @@ int main() {
     int *b = generate_vector(n, min, max);
     int *c = new int[n];
 
-    add_vectors(a, b, c, n);
+    add_vectors_cpu(a, b, c, n);
     
 
     // add vectors
