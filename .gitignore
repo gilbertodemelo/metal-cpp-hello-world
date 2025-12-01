@@ -1,0 +1,35 @@
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode
+
+### VisualStudioCode ###
+.vscode/*
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# General compiled binaries / executables
+a.out
+*.out
+*.exe
+*.bin
+
+# If you name your executables consistently (e.g., all start with 'test_' or are in a build/ dir)
+test_*
+build/
+cmake-build-*/
+
+# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
