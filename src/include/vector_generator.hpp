@@ -17,7 +17,7 @@
 #include <QuartzCore/QuartzCore.hpp>
 
 template <typename T>
-T *generate_vector(int size, T min, T max) {
+T *generate_vector(size_t size, T min, T max) {
      std::random_device rd;
      std::mt19937 generator(rd());
 
@@ -25,12 +25,12 @@ T *generate_vector(int size, T min, T max) {
      
      if constexpr (std::is_integral_v<T>) {
         std::uniform_int_distribution<T> distribution(min, max);
-        for(int i = 0; i < size; i++) {
+        for(size_t i = 0; i < size; i++) {
             arr[i] = distribution(generator);
         }
      } else if constexpr(std::is_floating_point_v<T>) {
         std::uniform_real_distribution<T> distribution(min, max);
-        for(int i = 0; i < size; i++) {
+        for(size_t i = 0; i < size; i++) {
             arr[i] = distribution(generator);
         }
      }
