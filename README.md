@@ -9,6 +9,17 @@ This project demonstrates how to perform vector addition using Apple's Metal API
 - `src/include/vector_generator.hpp`: Contains helper functions for vector generation and the host-side Metal implementation (`add_vectors_gpu`).
 - `Makefile`: Build script to compile the C++ code and Metal shaders.
 
+## Running Metal Outside Xcode
+
+Unlike traditional iOS/macOS development that relies heavily on Xcode, this project demonstrates how to use Metal directly from the command line using C++.
+
+**Key Differences:**
+- **No Xcode Project:** There is no `.xcodeproj` or `.xcworkspace` file. The build process is managed entirely by a `Makefile`.
+- **Command Line Tools:** We use `clang++` for compiling C++ code and `xcrun` to invoke Metal tools (`metal` for compiling shaders to AIR, `metallib` for creating the library).
+- **Metal-cpp:** This project utilizes `metal-cpp`, a C++ interface for Metal, allowing us to write Metal applications in standard C++ without Objective-C/Swift.
+
+This approach offers a lightweight, transparent way to understand the Metal compilation pipeline and is ideal for cross-platform C++ developers or those integrating Metal into custom build systems.
+
 ## Prerequisites
 
 - macOS with a Metal-capable GPU (Apple Silicon M1/M2/M3 recommended for unified memory benefits).
@@ -39,11 +50,4 @@ Or execute the binary directly:
 ./build/vecadd
 ```
 
-## Important Note on Memory Usage
 
-The default vector size in `main.cpp` is set to **10 billion elements** (`10'000'000'000`).
-- Each vector is `float` (4 bytes).
-- 3 vectors (A, B, C) are allocated.
-- Total memory required: ~120 GB.
-
-**Warning:** This will likely exceed the available RAM on most systems, leading to a crash or extreme swapping. If you encounter memory issues, reduce the `n` variable in `src/core/main.cpp` to a smaller value (e.g., `100'000'000` for ~1.2 GB).
